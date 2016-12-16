@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Tin Tức</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content news-list">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card *ngFor="let new of news" (click)="goToNewDetail(new)">
+        <img src="{{new.imgsrc}}"/>
+        <ion-card-content>
+            <ion-card-title class="justified-text">
+                {{new.title}}
+            </ion-card-title>
+            <p class="justified-text">
+                {{new.excerpt}}
+            </p>
+        </ion-card-content>
+
+        <button ion-item (click)="goToNewDetail(new)">
+            <p>Xem Chi Tiết</p>
+        </button>
+
+    </ion-card>
+</ion-content>

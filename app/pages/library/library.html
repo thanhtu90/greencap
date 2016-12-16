@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Thư Viện</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content news-list">
+
+    <ion-list *ngFor="let group of library">
+        <ion-list-header>
+            {{group.groupTitle}}
+        </ion-list-header>
+
+        <ion-item *ngFor="let item of group.items" (click)="goToNewDetail(item)">
+            <ion-icon name="document" item-left *ngIf="item.iconName == 'document'"></ion-icon>
+            <ion-icon name="ios-book-outline" item-left *ngIf="item.iconName == 'ios-book'"></ion-icon>
+            <ion-icon name="calculator" item-left *ngIf="item.iconName == 'calculator'"></ion-icon>
+            <ion-icon name="ios-cash" item-left *ngIf="item.iconName == 'ios-cash'"></ion-icon>
+            <ion-icon name="md-clipboard" item-left *ngIf="item.iconName == 'clipboard'"></ion-icon>
+            <ion-icon name="ios-archive-outline" item-left *ngIf="item.iconName == 'archieve'"></ion-icon>
+            <ion-icon name="ios-attach" item-left *ngIf="item.iconName == 'attach'"></ion-icon>
+
+            {{item.title}}
+        </ion-item>
+
+    </ion-list>
+</ion-content>

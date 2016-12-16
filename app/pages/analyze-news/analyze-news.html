@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar no-border-bottom>
+        <button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Phân tích tuần</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+
+        <ion-item-group *ngFor="let group of analyzeNews">
+
+            <ion-item-divider>
+                <p class="green-text"><ion-icon name="md-calendar"></ion-icon>
+                {{group.title}} <br>
+                {{group.time}}</p>
+            </ion-item-divider>
+
+            <ion-item *ngFor="let new of group.news">
+
+                <button ion-item (click)="goToNewDetail(new)" class="green-left-border">
+                    <h3 class="green-text">{{new.title}}</h3>
+                    <p>
+                        {{new.message}}
+                    </p>
+                </button>
+
+            </ion-item>
+
+        </ion-item-group>
+
+    </ion-list>
+
+</ion-content>
