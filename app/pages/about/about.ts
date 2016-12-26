@@ -68,7 +68,7 @@ export class AboutPage {
     console.log(this.person);
     this.firebaseservice.updateUserData('tu', 'tu_le');
     var temp = {'tu' : true };
-    this.firebaseservice.writeNewUser('ti_du', 'nguyen_thi_ti_du', temp);
+    // this.firebaseservice.writeNewUser('ti_du', 'nguyen_thi_ti_du', temp);
   }
 
   reset () {

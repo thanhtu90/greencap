@@ -16,11 +16,9 @@
         <img src="{{new.imgsrc}}"/>
         <ion-card-content>
             <ion-card-title class="justified-text">
-                {{new.title}}
+                {{new.post_title}}
             </ion-card-title>
-            <p class="justified-text">
-                {{new.excerpt}}
-            </p>
+            <p [innerHTML]="new.post_excerpt" class="justified-text">
         </ion-card-content>
 
         <button ion-item (click)="goToNewDetail(new)">

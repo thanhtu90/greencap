@@ -14,16 +14,16 @@
 
             <ion-item-divider>
                 <p class="green-text"><ion-icon name="md-calendar"></ion-icon>
-                {{group.title}} <br>
+                {{group.post_title}} <br>
                 {{group.time}}</p>
             </ion-item-divider>
 
-            <ion-item *ngFor="let new of group.news">
+            <ion-item *ngFor="let new of group.in_week_news">
 
                 <button ion-item (click)="goToNewDetail(new)" class="green-left-border">
-                    <h3 class="green-text">{{new.title}}</h3>
+                    <h3 class="green-text">{{new.post_title}}</h3>
                     <p>
-                        {{new.message}}
+                        {{new.post_excerpt}}
                     </p>
                 </button>
 

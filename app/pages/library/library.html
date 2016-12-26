@@ -11,19 +11,19 @@
 
     <ion-list *ngFor="let group of library">
         <ion-list-header>
-            {{group.groupTitle}}
+            {{group.post_title}}
         </ion-list-header>
 
-        <ion-item *ngFor="let item of group.items" (click)="goToNewDetail(item)">
-            <ion-icon name="document" item-left *ngIf="item.iconName == 'document'"></ion-icon>
-            <ion-icon name="ios-book-outline" item-left *ngIf="item.iconName == 'ios-book'"></ion-icon>
-            <ion-icon name="calculator" item-left *ngIf="item.iconName == 'calculator'"></ion-icon>
-            <ion-icon name="ios-cash" item-left *ngIf="item.iconName == 'ios-cash'"></ion-icon>
-            <ion-icon name="md-clipboard" item-left *ngIf="item.iconName == 'clipboard'"></ion-icon>
-            <ion-icon name="ios-archive-outline" item-left *ngIf="item.iconName == 'archieve'"></ion-icon>
-            <ion-icon name="ios-attach" item-left *ngIf="item.iconName == 'attach'"></ion-icon>
+        <ion-item *ngFor="let item of group.library_post" (click)="goToNewDetail(item)">
+            <ion-icon name="document" item-left *ngIf="item.icon_name == 'document'"></ion-icon>
+            <ion-icon name="ios-book-outline" item-left *ngIf="item.icon_name == 'ios-book'"></ion-icon>
+            <ion-icon name="calculator" item-left *ngIf="item.icon_name == 'calculator'"></ion-icon>
+            <ion-icon name="ios-cash" item-left *ngIf="item.icon_name == 'ios-cash'"></ion-icon>
+            <ion-icon name="md-clipboard" item-left *ngIf="item.icon_name == 'clipboard'"></ion-icon>
+            <ion-icon name="ios-archive-outline" item-left *ngIf="item.icon_name == 'archieve'"></ion-icon>
+            <ion-icon name="ios-attach" item-left *ngIf="item.icon_name == 'attach'"></ion-icon>
 
-            {{item.title}}
+            {{item.post_title}}
         </ion-item>
 
     </ion-list>

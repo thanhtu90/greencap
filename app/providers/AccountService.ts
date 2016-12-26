@@ -11,10 +11,10 @@ export class AccountService {
     static get parameters() {
         return [[Platform], [Http]];
     }
+    private response =[] ;
+    private url = 'http://api.greencapinvestment.com/';
 
-    constructor(public platform: Platform, public http: Http) {}
-
-    private response: any ;
+    constructor(public platform, private http) {}
     /**
      *
      * gọi api đăng nhập marrybaby
@@ -24,10 +24,12 @@ export class AccountService {
      * @returns {json}
      */
     login(user_login, user_pass) {
-        // this.response = this.http.post('http://api.1000ngayvang.vn/v1/account/login?user_login=' + user_login + '&user_pass=' + user_pass, '').map(res => res.json());
-        this.response = this.http.post('http://http://api.greencapinvestment.com//v1/account/login?user_login=' + user_login + '&user_pass=' + user_pass, '').map(res => res.json());
+        let body = new FormData();
+        body.append('user_login', user_login);
+        body.append('user_pass', user_pass);
+        console.log(body);
+        return this.http.post(this.url + '/v1/account/login', body).map(res => res.json());
 
-        return this.response;
     }
 
     /**
@@ -142,9 +144,7 @@ export class AccountService {
 
     getBabyInfo(baby_id) {
         var url = 'http://api.1000ngayvang.vn/v1/account/get-baby-info?baby_id=' + baby_id;
-        this.response = this.http.get(url).map(res => res.json());
-
-        return this.response;
+        return this.http.get(url).map(res => res.json());
     }
 
     getCityList() {
@@ -208,5 +208,20 @@ export class AccountService {
 
     foo(bar){
         window.localStorage.setItem('foo', bar);
+    }
+
+    logged_in(data){
+        // Put user_data into storage
+        localStorage.setItem('userdata', JSON.stringify(data.data));
+
+        // // Retrieve the object from storage
+        // var udata = JSON.parse(localStorage.getItem('userdata'));
+        // // for debug
+        // console.log(udata);
+        // console.log('ID: ' + udata.ID);
+        // console.log('Display name: ' +udata.display_name);
+        // console.log('Name: ' +udata.name);
+        // console.log('Email: ' +udata.email);
+        // console.log('Ip: ' +udata.ip);
     }
 }
